@@ -61,6 +61,7 @@ function random_bg_color(){
 	  document.body.style.background = rgbColor;
 }
 
+
 /* This function creates the HTML for the quotes to get printed to the webpage. 
    It checks to see if the Citation & Year properties are present. If they are it adds them to the HTMl to be printed. */
 
@@ -82,7 +83,7 @@ function printQuote(){
 	document.getElementById('quote-box').innerHTML = htmlToPage; 
 }
 
-
+setInterval(function(){ printQuote(); }, 10000);
 
 //Changes the Quote at random when "Show another Quote" button is pressed.
 
