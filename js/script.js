@@ -18,7 +18,7 @@ let quotes = [
 	{
 	quote: 'Nothing can stop the man with the right mental attitude from achieving his goal; nothing on Earth can help the man with the wrong mental attitude.',
 	source: 'Thomas Jefferson',
-	catagory: 'Motivational'
+	category: 'Motivational'
 	},
 	{
 	quote: 'I guess it comes down to a simple choice, really. Get busy living or get busy dying.',
@@ -28,19 +28,19 @@ let quotes = [
 	},
 	{
 	quote: 'Success consists of going from failure to failure without loss of enthusiasm.',
-	source: 'Winston Churchhill',
+	source: 'Winston Churchill',
 	citation: 'Book',
 	year: '1913'
 	},
 	{
 	quote: 'The secret of staying young is to live honestly, eat slowly, and lie about your age.',
 	source: 'Lucille Ball',	
-	catagory: 'Humor'
+	category: 'Humor'
 	},
 	{
 	quote: "Your time is limited, so don't waste it living someone else's life. Don't be trapped by dogma – which is living with the results of other people's thinking.",
 	source: 'Steve Jobs',
-	citation: 'Speech at Stanford Unversity',
+	citation: 'Speech at Stanford University',
 	year: '2005'
 	}
 ];
@@ -48,7 +48,7 @@ let quotes = [
 //This function pulls a random quote from the Quotes array. 
 
 function getRandomQuote(){
-	randomNumber = Math.floor(Math.random() * 5);
+	randomNumber = Math.floor(Math.random() * quotes.length);
 		return quotes[randomNumber];
 }
 
@@ -77,7 +77,7 @@ function printQuote(){
 		htmlToPage += '<span class="year">' + randomQuote.year + '</span>';
 	}
 	if(randomQuote.catagory){
-		htmlToPage += '<span class="catagory">' +  " " + randomQuote.catagory + '</p>';
+		htmlToPage += '<span class="category">' +  " " + randomQuote.catagory + '</p>';
 	}
 	htmlToPage += '</p>';
 	random_bg_color();
