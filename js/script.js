@@ -7,12 +7,17 @@ project 1 - A Random Quote Generator
 let randomNumber;
 let randomQuote;
 let htmlToPage = '';
+let red;
+let green;
+let blue;
+let rgbColor;
 
 /* An array of Objects containing a Quote, Source of the quote, Citation, and year of quote*/
 let quotes = [
 	{
-	quote: 'Nothing can stop the man with the right mental attitude from achieving his goal; nothing on earth can help the man with the wrong mental attitude.',
+	quote: 'Nothing can stop the man with the right mental attitude from achieving his goal; nothing on Earth can help the man with the wrong mental attitude.',
 	source: 'Thomas Jefferson',
+	catagory: 'Motivational'
 	},
 	{
 	quote: 'I guess it comes down to a simple choice, really. Get busy living or get busy dying.',
@@ -29,6 +34,7 @@ let quotes = [
 	{
 	quote: 'The secret of staying young is to live honestly, eat slowly, and lie about your age.',
 	source: 'Lucille Ball',	
+	catagory: 'Humor'
 	},
 	{
 	quote: "Your time is limited, so don't waste it living someone else's life. Don't be trapped by dogma – which is living with the results of other people's thinking.",
@@ -45,22 +51,39 @@ function getRandomQuote(){
 		return quotes[randomNumber];
 }
 
+//This function changes the background color ar random when the function is called.
+
+function random_bg_color(){
+	  red = Math.floor(Math.random() * 256 );
+	  green = Math.floor(Math.random() * 256 );
+	  blue = Math.floor(Math.random() * 256 );
+	  rgbColor = 'rgb(' + red + ',' + green + ',' + blue + ')';
+	  document.body.style.background = rgbColor;
+}
+
 /* This function creates the HTML for the quotes to get printed to the webpage. 
    It checks to see if the Citation & Year properties are present. If they are it adds them to the HTMl to be printed. */
 
 function printQuote(){
 	randomQuote = getRandomQuote(quotes);
 	htmlToPage = '<p class="quote">' + randomQuote.quote +'</p>';
-		htmlToPage +='<p class="source">' + randomQuote.source;
+	htmlToPage +='<p class="source">' + randomQuote.source;
 	if(randomQuote.citation){
 		htmlToPage += '<span class="citation">' + randomQuote.citation + '</span>';
 	}
-	if(randomQuote.year){
+	if(randomQuote.year){ 
 		htmlToPage += '<span class="year">' + randomQuote.year + '</span>';
 	}
-	htmlToPage += '</p>'
+	if(randomQuote.catagory){
+		htmlToPage += '<span class="catagory">' +  " " + randomQuote.catagory + '</p>';
+	}
+	htmlToPage += '</p>';
+	random_bg_color();
 	document.getElementById('quote-box').innerHTML = htmlToPage; 
 }
 
+
+
 //Changes the Quote at random when "Show another Quote" button is pressed.
+
 document.getElementById('load-quote').addEventListener("click", printQuote, false); 
