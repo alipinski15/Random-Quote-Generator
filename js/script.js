@@ -12,7 +12,8 @@ let green;
 let blue;
 let rgbColor;
 
-/* An array of Objects containing a Quote, Source of the quote, Citation, and year of quote*/
+//An array of Objects containing a Quote, Source of the quote, Citation, and year of quote
+
 let quotes = [
 	{
 	quote: 'Nothing can stop the man with the right mental attitude from achieving his goal; nothing on Earth can help the man with the wrong mental attitude.',
@@ -44,7 +45,7 @@ let quotes = [
 	}
 ];
 
-/* This function pulls a random quote from the Quotes array. */
+//This function pulls a random quote from the Quotes array. 
 
 function getRandomQuote(){
 	randomNumber = Math.floor(Math.random() * 5);
@@ -82,6 +83,8 @@ function printQuote(){
 	random_bg_color();
 	document.getElementById('quote-box').innerHTML = htmlToPage; 
 }
+
+//This Method sets an automatic timer to refresh the page every 10sec. 
 
 setInterval(function(){ printQuote(); }, 10000);
 
