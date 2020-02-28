@@ -4,13 +4,15 @@ project 1 - A Random Quote Generator
 ******************************************/
 
 
-let randomNumber;
+let pullQuote;
 let randomQuote;
 let htmlToPage = '';
 let red;
 let green;
 let blue;
 let rgbColor;
+let spliceQuote;
+let usedQuote = [];
 
 //An array of Objects containing a Quote, Source of the quote, Citation, and year of quote
 
@@ -52,10 +54,16 @@ let quotes = [
 //This function pulls a random quote from the Quotes array. 
 
 function getRandomQuote(){
-	randomNumber = Math.floor(Math.random() * quotes.length);
-		return quotes[randomNumber];
+	pullQuote = Math.floor(Math.random() * quotes.length);
+	spliceQuote = quotes.splice(pullQuote, 1)[0];
+	usedQuote.push(spliceQuote);
+	if(quotes.length == 0){
+		quotes = usedQuote;
+		usedQuote = [];
+	}
+	return spliceQuote;
 }
-
+	
 //This function changes the background color ar random when the function is called.
 
 function random_bg_color(){
@@ -80,7 +88,7 @@ function printQuote(){
 	if(randomQuote.year){ 
 		htmlToPage += '<span class="year">' + randomQuote.year + '</span>';
 	}
-	if(randomQuote.catagory){
+	if(randomQuote.category){
 		htmlToPage += '<span class="category">' +  " " + randomQuote.catagory + '</p>';
 	}
 	htmlToPage += '</p>';
