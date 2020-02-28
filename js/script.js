@@ -18,6 +18,8 @@ let quotes = [
 	{
 	quote: 'Nothing can stop the man with the right mental attitude from achieving his goal; nothing on Earth can help the man with the wrong mental attitude.',
 	source: 'Thomas Jefferson',
+	citation: 'Unknown',
+	year: 'Unknown',
 	category: 'Motivational'
 	},
 	{
@@ -34,7 +36,9 @@ let quotes = [
 	},
 	{
 	quote: 'The secret of staying young is to live honestly, eat slowly, and lie about your age.',
-	source: 'Lucille Ball',	
+	source: 'Lucille Ball',
+	citation: 'Unknown',
+	year: 'Unknown',	
 	category: 'Humor'
 	},
 	{
